@@ -798,7 +798,7 @@ export default defineComponent({
       let limit = setting.pageSize;
       if (!props.isReSearch || page > 1 || page == prevPage) {
         // 非重新查詢發生的頁碼變動才執行呼叫查詢 (Call query will only be executed if the page number is changed without re-query)
-        emit("do-search", offset, limit, order, sort);
+        emit("do-search", offset, limit, order, sort, page); //add page argument for the database pagination on serverside ( add "+ '&page=' + page" to query)
       }
     };
     // 監聽頁碼切換 (Monitor page switching)
